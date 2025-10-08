@@ -48,6 +48,14 @@
     margin-top: 40px;
 }
 
+.app .cont-foto img{
+    background-size: 100%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+}
+
 .app .titulo-cancion{
     text-align: center;
     padding: 40px 0 0 0;
@@ -106,6 +114,43 @@
     color: #fff;
     font-size: 14px;
 }
+
+.app .botones{
+    display: flex;
+    justify-content: space-between;
+}
+
+.app .botones .btn1{
+    border: none;
+    font-size: 25px;
+    background: transparent;
+    color: #fff;
+}
+
+.app .botones .btn2{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #1c1b29;
+    color: #fff;
+    font-size: 25px;
+    border: none;
+}
+
+.app .botones .btn3{
+    width: 53px;
+    height: 53px;
+    border-radius: 50%;
+    border: none;
+    background: #c4da47;
+    font-size: 35px;
+}
+
+
+
+
+
+
 
 
 
