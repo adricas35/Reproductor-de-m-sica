@@ -15,7 +15,7 @@
     background: linear-gradient(#AD9B8D, #09080E);
     margin: 0 auto;
     border-radius: 30px;
-    padding: 80px 40px 40px 40 px;
+    padding: 80px 40px 40px 40px;
 }
 
 .app .top-bar{
@@ -50,7 +50,7 @@
 
 .app .titulo-cancion{
     text-align: center;
-    padding: 40px;
+    padding: 40px 0 0 0;
     font-weight: 400;
     color: #fff;
     font-size: 30px;
@@ -96,6 +96,18 @@
   cursor: pointer;
   margin-top: -6px; 
 }
+
+.app .minutos{
+    display: flex;
+    justify-content: space-between;
+}
+
+.app .minutos p{
+    color: #fff;
+    font-size: 14px;
+}
+
+
 
 
 
