@@ -37,6 +37,21 @@
     margin-top: 40px;
 }
 
+.app .titulo-cancion{
+    text-align: center;
+    padding: 40px;
+    font-weight: 400;
+    color: #fff;
+    font-size: 30px;
+}
+
+.app h3{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+}
+
 
 
 
