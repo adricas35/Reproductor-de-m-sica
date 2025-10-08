@@ -1,0 +1,43 @@
+
+.app{
+    width: 430px;
+    height: 932px;
+    background: linear-gradient(#AD9B8D, #09080E);
+    margin: 0 auto;
+    border-radius: 30px;
+    padding: 80px 40px 40px 40 px;
+}
+
+.app .top-bar{
+    justify-content: space-between;
+    display: flex;
+}
+
+.app .top-bar button{
+    width: 53px;
+    height: 57px;
+    border-radius: 50%;
+    background: #0000003a;
+    border: none;
+}
+
+.top-bar h2{
+    font-size: 20px;
+    padding: 15px 0 0 0;
+    color: #fff;
+
+}
+
+.app .cont-foto{
+    width: 311px;
+    height: 311px;
+    border-radius: 50%;
+    border: 2px solid #ad9b8d;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+
+
+
+
