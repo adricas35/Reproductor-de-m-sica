@@ -41,14 +41,12 @@
     font-size: 20px;
     padding: 15px 0 0 0;
     color: #fff;
-
 }
 
 .app .cont-foto{
     width: 311px;
     height: 311px;
     border-radius: 50%;
-    border: 2px solid #ad9b8d;
     margin: 0 auto;
     margin-top: 40px;
 }
@@ -149,6 +147,40 @@
     border: none;
     background: #c4da47;
     font-size: 35px;
+}
+
+/* === Fondo difuminado sutil arriba y degradado oscuro abajo === */
+.app {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fondo con leve blur solo arriba */
+.app::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../img/imagen\ 1.jpeg") no-repeat center center/cover;
+  filter: blur(10px) brightness(0.6);
+  transform: scale(1.1);
+  z-index: 0;
+  border-radius: 30px;
+}
+
+/* Degradado negro que cubre desde la mitad hacia abajo */
+.app::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 30%, #000 100%);
+  z-index: 0;
+  border-radius: 30px;
+}
+
+/* Todo el contenido va encima */
+.app * {
+  position: relative;
+  z-index: 1;
 }
 
 
