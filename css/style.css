@@ -32,6 +32,11 @@
     color: #fff;
 }
 
+.top-bar button i{
+    font-size: 23px;
+    color: #fff;
+}
+
 .top-bar h2{
     font-size: 20px;
     padding: 15px 0 0 0;
