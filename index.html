@@ -11,7 +11,7 @@
 
 <body>
 
-    <div class="app">
+    <div id="fondo" class="app">
 
         <div class="top-bar">
             <button><i class="bi bi-arrow-left-short"></i></button>
@@ -20,26 +20,26 @@
         </div>
 
         <div class="cont-foto">
-            <img src="img/imagen 1.jpeg" alt="">
+            <img id="foto-caratula" src="img/imagen 5.jpeg" alt="">
         </div>
 
         <h2 class="titulo-cancion">Starlit Reverie</h2>
-        <h3>Budiarti x Lilmagrib</h3>
+        <h3 id="artista">Budiarti x Lilmagrib</h3>
 
         <div class="progress-container">
             <input type="range" class="progress-bar" min="0" max="100" value="25">
         </div>
 
         <div class="minutos">
-            <p>0:28</p>
-            <p>-2:15</p>
+            <p id="inicio">0:28</p>
+            <p id="fin">-2:15</p>
         </div>
 
         <div class="botones">
-            <button class="btn1"><i class="bi bi-shuffle"></i></button>
-            <button class="btn2"><i class="bi bi-skip-start-fill"></i></button>
-            <button class="btn3"><i class="bi bi-pause-fill"></i></button>
-            <button class="btn2"><i class="bi bi-skip-end-fill"></i></button>
+            <button id="aleatorio" class="btn1"><i class="bi bi-shuffle"></i></button>
+            <button id="ant" class="btn2"><i class="bi bi-skip-start-fill"></i></button>
+            <button id="play-pause" class="btn3"><i class="bi bi-play-fill"></i></button>
+            <button id="sig" class="btn2"><i class="bi bi-skip-end-fill"></i></button>
             <button class="btn1"><i class="bi bi-music-note-list"></i></button>
         </div>
 
@@ -50,7 +50,9 @@
 
 
 
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
 </body>
 
 </html>
