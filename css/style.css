@@ -8,6 +8,9 @@
 *{
     font-family: "Montserrat", sans-serif;
 }
+:root{
+  --fondo-caratula: url();
+}
 
 .app{
     width: 430px;
@@ -160,7 +163,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: url("../img/imagen\ 1.jpeg") no-repeat center center/cover;
+  background: var(--fondo-caratula) no-repeat center center/cover;
   filter: blur(10px) brightness(0.6);
   transform: scale(1.1);
   z-index: 0;
