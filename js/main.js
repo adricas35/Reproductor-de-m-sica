@@ -90,22 +90,3 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
