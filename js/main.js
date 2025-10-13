@@ -137,6 +137,7 @@ audio.addEventListener('timeupdate', ()=>{
     }
 })
 
+
 // SE CREA LA FUNCION PARA QUE AL MOVER LA BOLITA DE LA BARRA LA CANCIÓN SE ACTUALICE AL PUNTO EXACTO
 barraProgress.addEventListener('input', ()=>{
     // TOMAMOS EL VALOR ACTUAL DE LA BARRA CON EL .VALUE QUE ES UN INPUT
