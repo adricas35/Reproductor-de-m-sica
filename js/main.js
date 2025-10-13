@@ -8,6 +8,8 @@ const btnSiguiente = document.querySelector("#sig");
 const audio = document.getElementById("audio");
 const btnPlayPause = document.getElementById("play-pause");
 const barraProgress = document.getElementById("progress");
+const inicio = document.getElementById("inicio");
+const fin = document.getElementById("fin");
 let isPlaying = false;
 let canciones = [];
 let indiceActual = 0;
@@ -108,7 +110,31 @@ audio.addEventListener('timeupdate', ()=>{
     barraProgress.style.setProperty('--value', `${porcentaje}%`);
     // 6. LE ASIGNAMOS EL VALOR GUARDADO EN PORCENTAJE A LA BARRA DE PROGRESO
     barraProgress.value= porcentaje
+    
 
+    // Se mueve dinamicamente los segundos, (aqui la variabe tiempoRestante es para que los min y segundos totales se vayan restando cuando la duracion actual vaya incrementando
+    if (audio.duration){
+        let tiempoRestante = audio.duration - audio.currentTime;
+
+        // Se muestra los minutos y segundos que estan en parte izquierda de la pagina
+        let minutosActual= Math.floor(audio.currentTime / 60);
+        let segundosActual= Math.floor(audio.currentTime % 60);
+        // Se muestra los minutos y segundos que estan en la parte derecha de la pagina y se utiliza el Math para redonder el el numero decimal a entero y se realiza la operacion con el % para tomar el restante de la division es decir si la division dio 1.05 lo que hace el % es tomar el .05 entonces el  % toma los segundos de la cancion 
+        let minutosTotal= Math.floor(tiempoRestante / 60);
+        let segundosTotal= Math.floor(tiempoRestante % 60);
+
+        // Si los segundos son menores que 10, agregamos un 0 al frente
+        if(segundosActual <10) {
+            segundosActual= "0" + segundosActual;
+        }
+
+        if (segundosTotal <10) {
+            segundosTotal= "0" + segundosTotal;
+        }
+    // Se muestra los tiempos en pantalla
+        inicio.textContent= minutosActual + ":" + segundosActual;
+        fin.textContent= "-" + minutosTotal + ":" + segundosTotal;
+    }
 })
 
 // SE CREA LA FUNCION PARA QUE AL MOVER LA BOLITA DE LA BARRA LA CANCIÓN SE ACTUALICE AL PUNTO EXACTO
