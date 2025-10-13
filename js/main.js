@@ -11,6 +11,7 @@ const btnPlayPause = document.getElementById("play-pause");
 const barraProgress = document.getElementById("progress");
 const inicio = document.getElementById("inicio");
 const fin = document.getElementById("fin");
+const contenedorCanciones = document.getElementById("contenedor-canciones");
 let isPlaying = false;
 let canciones = [];
 let indiceActual = 0;
@@ -44,7 +45,6 @@ btnAleatorio.addEventListener("click", () => {
     }
 
 })
-
 
 
 // función para avanzar en la lista de canciones 
@@ -184,6 +184,45 @@ barraProgress.addEventListener('input', () => {
 })
 
 
+function mostrarCancionesEnLista(){
+    canciones.forEach((cancion)=>{
+        const fila = document.createElement('div');
+        fila.classList.add('fila');
+
+        const conImg = document.createElement('div');
+        conImg.classList.add('cont-img');
+
+        const img = document.createElement('img');
+        img.setAttribute('src', cancion.caratula);
+        img.setAttribute('alt', cancion.nombre);
+
+        const contInfo = document.createElement('div');
+        contInfo.classList.add('cont-info');
+
+        const h3 = document.createElement('h3');
+        h3.textContent = cancion.nombre;
+
+        const h4 = document.createElement('h4');
+        h4.textContent = cancion.artista;
+
+        const boton = document.createElement('button');
+        boton.innerHTML = '<i class="bi bi-play-fill"></i>'
+
+
+        contenedorCanciones.appendChild(fila);
+
+        fila.appendChild(conImg);
+        fila.appendChild(contInfo);
+        fila.appendChild(boton);
+        conImg.appendChild(img);
+        contInfo.appendChild(h3);
+        contInfo.appendChild(h4);
+
+
+    })
+}
+
+
 // Se consulta al json para cargar las canciones al cargar la pagina
 document.addEventListener("DOMContentLoaded", () => {
     fetch("canciones.json")
@@ -192,11 +231,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         .then(data => {
             canciones = data
+
             // Esto llama una funcion que va a mostrar los datos en la tabla
             mostraCanciones(indiceActual)
 
             // INICIALIZAMOS EL SRC AQUÍ PARA PODER USARLO EN EL BOTÓN DE REPRODUCIR.
             audio.setAttribute('src', canciones[indiceActual].cancion)
+
+            mostrarCancionesEnLista()
+
         })
 
 
