@@ -7,6 +7,7 @@ const btnAnterior = document.querySelector("#ant");
 const btnSiguiente = document.querySelector("#sig");
 const audio = document.getElementById("audio");
 const btnPlayPause = document.getElementById("play-pause");
+const barraProgress = document.getElementById("progress");
 let isPlaying = false;
 let canciones = [];
 let indiceActual = 0;
@@ -38,6 +39,16 @@ btnSiguiente.addEventListener("click", () => {
     }
     // Retornamos el valor de la funcion inical
     mostraCanciones(indiceActual);
+    // REPRODUCIMOS LA CANCIÓN DESPUES DE ACTUALIZAR EL ÍNDICE O SI NO SE REPRODUCE LA CANCIÓN ANTERIOR EN EL ARREGLO AL CAMBIAR AL BOTÓN SEGUIENTE
+    const cancion= canciones [indiceActual]
+    // CAMBIAMOS LA CANCIÓN
+    audio.setAttribute('src', cancion.cancion);
+    
+    audio.play()
+
+    btnPlayPause.innerHTML= '<i class="bi bi-pause-fill"></i>'
+    // MANTENEMOS EL BOOLEANO EN TRUE PARA QUE NO IMPORTE SI LA CANCIÓN ESTÁ PAUSADA O NO, SE REPRODUZCA SIEMPRE LA SIGUIENTE AL PRESIONAR EL BOTÓN DE NEXT
+    isPlaying= true
 })
 
 // función para devolver la cación de la lista de caciones 
@@ -50,13 +61,22 @@ btnAnterior.addEventListener("click", () => {
         indiceActual--;
     }
     mostraCanciones(indiceActual);
+    // REPRODUCIMOS LA CANCIÓN DESPUES DE ACTUALIZAR EL ÍNDICE O SI NO SE REPRODUCE LA CANCIÓN ANTERIOR EN EL ARREGLO AL CAMBIAR AL BOTÓN ANTERIOR
+    const cancion= canciones [indiceActual]
+      // CAMBIAMOS LA CANCIÓN
+    audio.setAttribute('src', cancion.cancion);
+
+    audio.play()
+
+    btnPlayPause.innerHTML= '<i class="bi bi-pause-fill"></i>'
+    // MANTENEMOS EL BOOLEANO EN TRUE PARA QUE NO IMPORTE SI LA CANCIÓN ESTÁ PAUSADA O NO, SE REPRODUZCA SIEMPRE LA SIGUIENTE AL PRESIONAR EL BOTÓN DE NEXT
+    isPlaying= true
 })
 
 
 // Se agregar el evento "click" al botón para pausar y reproducir la cación 
 btnPlayPause.addEventListener('click', () => {
-    const cancion = canciones[indiceActual]
-    audio.setAttribute('src', cancion.cancion)
+    
     if (isPlaying) {
         // Si está sonando, pausa la reproducción y cambia el icono del botón
         audio.pause();
@@ -71,6 +91,27 @@ btnPlayPause.addEventListener('click', () => {
 });
 
 
+// SINCRONIZAR LA BARRA DE PROGRESO CON EL AUDIO DE LA CANCIÓN
+// timeupdate ES UN EVENTO QUE SE DISPARA CUANDO SE ESTÁ REPRODUCIENDO LA CANCIÓN ES PROPIO DE LA ETIQUETA AUDIO
+audio.addEventListener('timeupdate', ()=>{
+    // 1. OBTENEMOS CUANTO TIEMPO LLEVA REPRODUCIDO EL AUDIO
+    audio.currentTime;
+    // 2. OBTENEMOS LA DURACIÓN TOTAL DE LA CANCIÓN
+    audio.duration;
+    // 3. CALCULAMOS EL PORCENTAJE DE PROGRESO, DIVIDIENDO EL TIEMPO ACTUAL POR LA DURACIÓN TOTAL DE LA CANCIÓN Y MULTIPLICANDO POR 100 Y LO GUARDAMOS EN UNA VARIABLE
+    let porcentaje= 0;
+    // 4. ACÁ DECIMOS QUE SI LA DURACIÓN TOTAL DE LA CANCIÓN ES 0 ENTONCES SE EJECUTE LA OPERACIÓN PARA ACTUALIZAR LA BARRA DE PROGRESO Y EL MOVIMIENTO DE LA BOLITA LO MULTIPLICAMOS ENTRE 100 PARA QUE SE VUELVA PORCENTAJE.
+    if (audio.duration){
+        porcentaje= audio.currentTime / audio.duration * 100
+    }
+    // 5. VAMOS A ACTUALIZAR LA BARRA AMARILLA JUNTO CON LA BOLITA, IMPORTANTE AGREGAR EL % PARA QUE EL GRADIENT DE LA BARRA LO INTERPRETE CORRECTAMENTE
+    barraProgress.style.setProperty('--value', `${porcentaje}%`);
+    // 6. LE ASIGNAMOS EL VALOR GUARDADO EN PORCENTAJE A LA BARRA DE PROGRESO
+    barraProgress.value= porcentaje
+
+})
+
+
 // Se consulta al json para cargar las canciones al cargar la pagina
 document.addEventListener("DOMContentLoaded", () => {
     fetch("canciones.json")
@@ -81,6 +122,9 @@ document.addEventListener("DOMContentLoaded", () => {
             canciones = data
             // Esto llama una funcion que va a mostrar los datos en la tabla
             mostraCanciones(indiceActual)
+
+            // INICIALIZAMOS EL SRC AQUÍ PARA PODER USARLO EN EL BOTÓN DE REPRODUCIR.
+            audio.setAttribute('src', canciones[indiceActual].cancion)
         })
 
 

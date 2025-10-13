@@ -96,7 +96,7 @@
 /* Línea que ya ha sido “reproducida” */
 .progress-bar::-webkit-slider-runnable-track {
   height: 4px;
-  background: linear-gradient(to right, #c4da47 var(--value, 25%), #333 0%);
+  background: linear-gradient(to right, #c4da47 var(--value), #333 0%);
 }
 
 /* Bolita del slider */
