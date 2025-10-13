@@ -111,6 +111,18 @@ audio.addEventListener('timeupdate', ()=>{
 
 })
 
+// SE CREA LA FUNCION PARA QUE AL MOVER LA BOLITA DE LA BARRA LA CANCIÓN SE ACTUALICE AL PUNTO EXACTO
+barraProgress.addEventListener('input', ()=>{
+    // TOMAMOS EL VALOR ACTUAL DE LA BARRA CON EL .VALUE QUE ES UN INPUT
+    barraProgress.value;
+    // DECLARAMOS UNA VARIABLE INICIALIZADA EN 0 PARA GUARDAR EL RESULTADO DE MULTIPLICAR Y EL VALOR ACTUAL DE LA BARRA POR LA DURACIÓN REAL DE LA CANCIÓN DIVIDO POR 100 MULTIPLICAMOS Y DIVIMOS ENTRE 100 PARA PASAR UN VALOR PORCENTUAL A SEGUNDOS REALES
+    let nuevoTiempo=0
+    // GUARDAMOS EL RESULTADO EN LA VARIABLE
+    nuevoTiempo= (barraProgress.value * audio.duration) / 100;
+    // GUARDAMOS EN EL TIEMPO TRANSCURRIDO LA VARIABLE CON EL RESULTADO PARA ASÍ TERMINAR LA FUNCIÓN
+    audio.currentTime= nuevoTiempo;
+})
+
 
 // Se consulta al json para cargar las canciones al cargar la pagina
 document.addEventListener("DOMContentLoaded", () => {
