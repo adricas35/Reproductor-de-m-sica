@@ -4,7 +4,7 @@
         "nombre": "Blinding Lights",
         "artista": "The Weeknd",
         "duracion": "03:23",
-        "caratula": "../img/imagen 1.jpeg",
+        "caratula": "./img/imagen 1.jpeg",
         "cancion": "../mp3/audio 1.mp3"
     },
 
@@ -13,7 +13,7 @@
         "nombre": "Birds of a Feather",
         "artista": "Billie Eilish",
         "duracion": "03:31",
-        "caratula": "../img/imagen 2.jpeg",
+        "caratula": "./img/imagen 2.jpeg",
         "cancion": "../mp3/audio 2.mp3"
     },
     {
@@ -21,7 +21,7 @@
         "nombre": "Sabes una Cosa",
         "artista": "Luis Miguel",
         "duracion": "03:17",
-        "caratula": "../img/imagen 3.jpeg",
+        "caratula": "./img/imagen 3.jpeg",
         "cancion": "../mp3/audio 3.mp3"
     },
    
@@ -30,7 +30,7 @@
         "nombre": "Su Nombre en mi Cuaderno",
         "artista": "Makano",
         "duracion": "03:24",
-        "caratula": "../img/imagen 4.jpeg",
+        "caratula": "./img/imagen 4.jpeg",
         "cancion": "../mp3/audio 4.mp3"
     },
     {
@@ -38,7 +38,7 @@
         "nombre": "Las Tetas de mi Madre",
         "artista": "Crack Family",
         "duracion": "03:33",
-        "caratula": "../img/imagen 5.jpeg",
+        "caratula": "./img/imagen 5.jpeg",
         "cancion": "../mp3/audio 5.mp3"
     },
     {
@@ -46,7 +46,7 @@
         "nombre": "Mis Ojos Lloran Por Ti",
         "artista": "Big Boy",
         "duracion": "04:55",
-        "caratula": "../img/imagen 6.jpeg",
+        "caratula": "./img/imagen 6.jpeg",
         "cancion": "../mp3/audio 6.mp3"
     },
     {
@@ -54,7 +54,7 @@
         "nombre": "Par de Pepas",
         "artista": "Doble Porción, Mañas Ru-Fino, Métricas Frías",
         "duracion": "02:33",
-        "caratula": "../img/imagen 7.jpeg",
+        "caratula": "./img/imagen 7.jpeg",
         "cancion": "../mp3/audio 7.mp3"
     },
     {
@@ -62,7 +62,7 @@
         "nombre": "Muerte en Hawaii",
         "artista": "Calle 13",
         "duracion": "03:11",
-        "caratula": "../img/imagen 8.jpeg",
+        "caratula": "./img/imagen 8.jpeg",
         "cancion": "../mp3/audio 8.mp3"
     }
     
