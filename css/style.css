@@ -193,15 +193,22 @@
 }
 
 .cont-lista {
+  display: none;
   width: 430px;
   height: 932px;
   background: #09080E;
   margin: 0 auto;
   border-radius: 30px;
   padding: 80px 40px 40px 40px;
-  display: flex;
   flex-direction: column;
   overflow: hidden;
+  top: 0px;
+  position: absolute;
+  right: 0px;
+}
+
+.lista-visible {
+  display: flex;
 }
 
 .cont-lista .top-bar {
@@ -209,23 +216,23 @@
   justify-content: space-between;
 }
 
-.cont-canciones{
+.cont-canciones {
   flex: 1;
   max-height: 100%;
   overflow: auto;
 }
 
-.cont-canciones::-webkit-scrollbar{
+.cont-canciones::-webkit-scrollbar {
   width: 6px;
 }
 
-.cont-canciones::-webkit-scrollbar-thumb{
+.cont-canciones::-webkit-scrollbar-thumb {
   background: #1c1b29;
   border-radius: 10px;
 }
 
-.cont-canciones::-webkit-scrollbar-track{
-  background: transparent; 
+.cont-canciones::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .cont-lista .top-bar button {
@@ -288,7 +295,7 @@
   color: #000 !important;
 }
 
-.fila .cont-info{
+.fila .cont-info {
   padding: 0 20px 0 20px;
   width: 220px;
 }

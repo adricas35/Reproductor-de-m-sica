@@ -11,6 +11,7 @@ const btnPlayPause = document.getElementById("play-pause");
 const barraProgress = document.getElementById("progress");
 const inicio = document.getElementById("inicio");
 const fin = document.getElementById("fin");
+const btnList = document.querySelector('#btn-lista');
 const contenedorCanciones = document.getElementById("contenedor-canciones");
 let isPlaying = false;
 let canciones = [];
@@ -88,7 +89,7 @@ btnAnterior.addEventListener("click", () => {
     } else {
         // Esto lo ponemos por si el indice esta en el primero y retorne al ultimo 
         if (indiceActual === 0) [
-            
+
             indiceActual = canciones.length - 1
         ]
         else {
@@ -183,9 +184,19 @@ barraProgress.addEventListener('input', () => {
     audio.currentTime = nuevoTiempo;
 })
 
+// se crea evento click en el boton de la lista para visualizar y ocultar la lista de canciones
+btnList.addEventListener('click', () => {
+    const containerList = document.querySelector('.cont-lista');
+    if (containerList.classList.contains('lista-visible')) {
+        containerList.classList.remove('lista-visible');
+    } else {
+        containerList.classList.add('lista-visible');
+    }
+});
 
-function mostrarCancionesEnLista(){
-    canciones.forEach((cancion)=>{
+
+function mostrarCancionesEnLista() {
+    canciones.forEach((cancion) => {
         const fila = document.createElement('div');
         fila.classList.add('fila');
 
