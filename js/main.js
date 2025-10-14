@@ -13,6 +13,7 @@ const inicio = document.getElementById("inicio");
 const fin = document.getElementById("fin");
 const btnList = document.querySelector('#btn-lista');
 const contenedorCanciones = document.getElementById("contenedor-canciones");
+const btnRegreso = document.getElementById("btn-regreso");
 let isPlaying = false;
 let canciones = [];
 let indiceActual = 0;
@@ -187,16 +188,17 @@ barraProgress.addEventListener('input', () => {
 // se crea evento click en el boton de la lista para visualizar y ocultar la lista de canciones
 btnList.addEventListener('click', () => {
     const containerList = document.querySelector('.cont-lista');
-    if (containerList.classList.contains('lista-visible')) {
-        containerList.classList.remove('lista-visible');
-    } else {
-        containerList.classList.add('lista-visible');
-    }
+    containerList.classList.add('lista-visible')
 });
+
+btnRegreso.addEventListener('click', ()=>{
+    const containerList = document.querySelector('.cont-lista');
+    containerList.classList.remove('lista-visible');
+})
 
 
 function mostrarCancionesEnLista() {
-    canciones.forEach((cancion) => {
+    canciones.forEach((cancion, indice) => {
         const fila = document.createElement('div');
         fila.classList.add('fila');
 
@@ -218,6 +220,26 @@ function mostrarCancionesEnLista() {
 
         const boton = document.createElement('button');
         boton.innerHTML = '<i class="bi bi-play-fill"></i>'
+
+        boton.addEventListener('click', ()=>{
+            indiceActual= indice
+
+            mostraCanciones(indiceActual);
+
+            audio.setAttribute('src', cancion.cancion);
+
+            audio.play();
+
+            boton.innerHTML = '<i class="bi bi-pause-fill"></i>'
+
+            btnPlayPause.innerHTML = '<i class="bi bi-pause-fill"></i>'
+
+            isPlaying= true
+
+           const containerList = document.querySelector(".cont-lista");
+           containerList.classList.remove('lista-visible');
+
+        })
 
 
         contenedorCanciones.appendChild(fila);
