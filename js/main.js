@@ -26,7 +26,6 @@ function mostraCanciones(indice) {
 
     // Agregamos la foto de la caratula de fondo del reproductor
     fondo.style.setProperty('--fondo-caratula', `url('${cancion.caratula}')`);
-
     // Se agrega la imagen de la caractula de la canción seleccionada en el objeto img
     imgCaratula.setAttribute('src', cancion.caratula);
     // Agregamos el nombre de la cación seleccionada al titulo del reproductor
@@ -38,10 +37,12 @@ function mostraCanciones(indice) {
 
 // Funcion para generar un número aleatorio entre 0 hasta que finalice la lista
 btnAleatorio.addEventListener("click", () => {
+    // Se cambia el valor de aleatoria a su inverso
     aleatoria = !aleatoria;
-
+    // Se valida si aleatoria es true y se agrega la clase activa al boton
     if (aleatoria) {
         btnAleatorio.classList.add('active');
+        // Si aleatoria es false remueve la clase activa del boton
     } else {
         btnAleatorio.classList.remove('active');
     }
@@ -51,6 +52,7 @@ btnAleatorio.addEventListener("click", () => {
 
 // función para avanzar en la lista de canciones 
 btnSiguiente.addEventListener("click", () => {
+    // Se valida si aleatoria es true
     if (aleatoria) {
         // Multiplicar por la longitud de la lista para obtener un rango de 0 hasta (longitud del arreglo)
         // Math.floor() redondea hacia abajo para obtener un índice válido
@@ -78,6 +80,7 @@ btnSiguiente.addEventListener("click", () => {
     // MANTENEMOS EL BOOLEANO EN TRUE PARA QUE NO IMPORTE SI LA CANCIÓN ESTÁ PAUSADA O NO, SE REPRODUZCA SIEMPRE LA SIGUIENTE AL PRESIONAR EL BOTÓN DE NEXT
     isPlaying = true
 })
+
 
 // función para devolver la cación de la lista de caciones 
 btnAnterior.addEventListener("click", () => {
