@@ -54,8 +54,10 @@ btnAleatorio.addEventListener("click", () => {
 btnSiguiente.addEventListener("click", () => {
     // Se valida si aleatoria es true
     if (aleatoria) {
-        // Multiplicar por la longitud de la lista para obtener un rango de 0 hasta (longitud del arreglo)
+        // Se busca un indice de forma aleatoria 
         // Math.floor() redondea hacia abajo para obtener un índice válido
+        // Math.random() da valores aleatorios
+        // Se multiplica por la longitud de la lista para obtener un rango de 0 hasta (longitud del arreglo)
         const indiceAleatorio = Math.floor(Math.random() * (canciones.length));
         // Se asigna el indice aleatorio al indice actual para visualizar la cancion
         indiceActual = indiceAleatorio;
@@ -87,8 +89,10 @@ btnSiguiente.addEventListener("click", () => {
 // función para devolver la cación de la lista de caciones 
 btnAnterior.addEventListener("click", () => {
     if (aleatoria) {
-        // Multiplicar por la longitud de la lista para obtener un rango de 0 hasta (longitud - 1)
+        // Se busca un indice de forma aleatoria 
         // Math.floor() redondea hacia abajo para obtener un índice válido
+        // Math.random() da valores aleatorios
+        // Se multiplica por la longitud de la lista para obtener un rango de 0 hasta (longitud del arreglo)
         const indiceAleatorio = Math.floor(Math.random() * (canciones.length + 1));
         // Guardamos en la variable indiceactual el valor aleatorio que se guarda en la variable indice aleatorio
         indiceActual = indiceAleatorio;
